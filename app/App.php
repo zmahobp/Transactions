@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 $files = glob(FILES_PATH . '*.csv');
-#pretocuje podatke iz SVIH CSV fajlova iz views direktorijuma u zeljeni oblik array-a
+#turns the data from all CSV files from views directory into wanted kind of an array
 function csv_data_to_array(array $files) :array{
     $data = [];
     
@@ -28,7 +28,7 @@ function csv_data_to_array(array $files) :array{
     return [];
 }
 
-#pretocuje podatke iz CSV fajla u zeljeni oblik array-a
+#turns data from the CSV file into wanted kind of an array
 function csv_to_array(string $filePath) : array{
     $data = [];
 
@@ -50,7 +50,7 @@ function csv_to_array(string $filePath) : array{
     return $data;
 }
 
-#funkcija koja izracunava total income, total expense i net total i vraca listu sa ovim vrednostima
+#function that calculates total income, total expense and net total and returns an array with those values
 function calculate_totals(array $data) : array{
     $totals = ['totalIncome'=> 0.0, 'totalExpense'=> 0.0,'netTotal'=> 0.0 ];
 
@@ -68,7 +68,7 @@ function calculate_totals(array $data) : array{
     return $totals;
 } 
 
-#funkcija koja datum konvertuje u odgovarajuci format
+#function that converts date to wanted format
 function format_date(string $date) : string {
     return date('M j Y', strtotime($date));
 }
